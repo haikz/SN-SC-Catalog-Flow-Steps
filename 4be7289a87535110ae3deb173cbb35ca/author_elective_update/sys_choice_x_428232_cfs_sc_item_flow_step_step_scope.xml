@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="step_scope" table="x_428232_cfs_sc_item_flow_step" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>step_scope</element>
+            <name>x_428232_cfs_sc_item_flow_step</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-11-23 08:08:39</sys_created_on>
+            <sys_name>step_scope</sys_name>
+            <sys_package display_value="SC Catalog Flow Steps" source="x_428232_cfs">4be7289a87535110ae3deb173cbb35ca</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="SC Catalog Flow Steps">4be7289a87535110ae3deb173cbb35ca</sys_scope>
+            <sys_update_name>sys_choice_x_428232_cfs_sc_item_flow_step_step_scope</sys_update_name>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

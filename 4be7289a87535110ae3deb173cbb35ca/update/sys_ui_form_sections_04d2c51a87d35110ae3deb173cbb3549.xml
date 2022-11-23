@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="04d2c51a87d35110ae3deb173cbb3549" sys_domain="global" table="x_428232_cfs_flow_step" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-11-23 09:56:31</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>40d2c51a87d35110ae3deb173cbb357e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_428232_cfs_flow_step" name="x_428232_cfs_flow_step" sys_domain="global" view="Default view">04d2c51a87d35110ae3deb173cbb3549</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="x_428232_cfs_flow_step" sys_domain="global" view="Default view">912281d687d35110ae3deb173cbb356a</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2022-11-23 09:56:31</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-11-23 09:56:31</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4cd2c51a87d35110ae3deb173cbb357e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_428232_cfs_flow_step" name="x_428232_cfs_flow_step" sys_domain="global" view="Default view">04d2c51a87d35110ae3deb173cbb3549</sys_ui_form>
+            <sys_ui_section caption="Run condition" display_value="Run condition" name="x_428232_cfs_flow_step" sys_domain="global" view="Default view">48d2c51a87d35110ae3deb173cbb3547</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2022-11-23 09:56:31</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-11-23 09:56:31</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>80d2c51a87d35110ae3deb173cbb3582</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_428232_cfs_flow_step" name="x_428232_cfs_flow_step" sys_domain="global" view="Default view">04d2c51a87d35110ae3deb173cbb3549</sys_ui_form>
+            <sys_ui_section caption="Retry policy" display_value="Retry policy" name="x_428232_cfs_flow_step" sys_domain="global" view="Default view">04d2c51a87d35110ae3deb173cbb3548</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2022-11-23 09:56:31</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_428232_cfs_flow_step</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-11-23 09:56:31</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>04d2c51a87d35110ae3deb173cbb3549</sys_id>
+            <sys_name>x_428232_cfs_flow_step</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="SC Catalog Flow Steps" source="x_428232_cfs">4be7289a87535110ae3deb173cbb35ca</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="SC Catalog Flow Steps">4be7289a87535110ae3deb173cbb35ca</sys_scope>
+            <sys_update_name>sys_ui_form_sections_04d2c51a87d35110ae3deb173cbb3549</sys_update_name>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

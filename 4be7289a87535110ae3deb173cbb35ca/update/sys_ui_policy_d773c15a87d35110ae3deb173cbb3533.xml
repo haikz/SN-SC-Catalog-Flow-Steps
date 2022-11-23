@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_policy">
+    <sys_ui_policy action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <conditions table="x_428232_cfs_flow_step">scope=catalog_item^EQ<item display_value="Catalog Item" endquery="false" field="scope" goto="false" newquery="false" operator="=" or="false" value="catalog_item"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description/>
+        <global>true</global>
+        <inherit>false</inherit>
+        <isolate_script>true</isolate_script>
+        <model_id/>
+        <model_table/>
+        <on_load>true</on_load>
+        <order>100</order>
+        <reverse_if_false>true</reverse_if_false>
+        <run_scripts>true</run_scripts>
+        <script_false><![CDATA[function onCondition() {
+	g_form.setDisplay('sc_category', true);
+    g_form.setMandatory('sc_category', true);
+	g_form.setReadOnly('sc_category', false);
+	
+	g_form.setDisplay('sc_item', false);
+    g_form.setMandatory('sc_item', false);
+	g_form.setReadOnly('sc_item', true);
+	g_form.setValue('sc_item', '');
+}]]></script_false>
+        <script_true><![CDATA[function onCondition() {
+	g_form.setDisplay('sc_item', true);
+    g_form.setMandatory('sc_item', true);
+	g_form.setReadOnly('sc_item', false);
+	
+	g_form.setDisplay('sc_category', false);
+    g_form.setMandatory('sc_category', false);
+	g_form.setReadOnly('sc_category', true);
+	g_form.setValue('sc_category', '');
+}]]></script_true>
+        <set_values/>
+        <short_description>Based on step scope, hide/display item or category fields</short_description>
+        <sys_class_name>sys_ui_policy</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-11-23 10:03:12</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>d773c15a87d35110ae3deb173cbb3533</sys_id>
+        <sys_name>Based on step scope, hide/display item or category fields</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="SC Catalog Flow Steps" source="x_428232_cfs">4be7289a87535110ae3deb173cbb35ca</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SC Catalog Flow Steps">4be7289a87535110ae3deb173cbb35ca</sys_scope>
+        <sys_update_name>sys_ui_policy_d773c15a87d35110ae3deb173cbb3533</sys_update_name>
+        <table>x_428232_cfs_flow_step</table>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_ui_policy>
+</record_update>

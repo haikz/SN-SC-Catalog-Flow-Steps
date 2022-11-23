@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_object">
+    <sys_db_object action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <actions_access>false</actions_access>
+        <alter_access>false</alter_access>
+        <caller_access/>
+        <client_scripts_access>false</client_scripts_access>
+        <configuration_access>false</configuration_access>
+        <create_access>false</create_access>
+        <create_access_controls>true</create_access_controls>
+        <delete_access>false</delete_access>
+        <is_extendable>false</is_extendable>
+        <label>Flow Step Variable</label>
+        <live_feed_enabled>false</live_feed_enabled>
+        <name>x_428232_cfs_flow_step_variable</name>
+        <number_ref/>
+        <provider_class/>
+        <read_access>true</read_access>
+        <scriptable_table>false</scriptable_table>
+        <super_class display_value="Application File" name="sys_metadata">bb5f0220f90211108c8bd16244dfe78a</super_class>
+        <sys_class_name>sys_db_object</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-11-23 09:26:22</sys_created_on>
+        <sys_id>017b74de87935110ae3deb173cbb3571</sys_id>
+        <sys_name>Flow Step Variable</sys_name>
+        <sys_package display_value="SC Catalog Flow Steps" source="x_428232_cfs">4be7289a87535110ae3deb173cbb35ca</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SC Catalog Flow Steps">4be7289a87535110ae3deb173cbb35ca</sys_scope>
+        <sys_update_name>sys_db_object_017b74de87935110ae3deb173cbb3571</sys_update_name>
+        <update_access>false</update_access>
+        <user_role display_value="x_428232_cfs.flow_step_variable_user" name="x_428232_cfs.flow_step_variable_user">56eb781287d35110ae3deb173cbb3557</user_role>
+        <ws_access>true</ws_access>
+    </sys_db_object>
+</record_update>

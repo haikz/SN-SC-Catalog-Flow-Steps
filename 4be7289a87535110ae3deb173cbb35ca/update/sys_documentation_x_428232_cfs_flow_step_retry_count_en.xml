@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="retry_count" label="Retry count" language="en" table="x_428232_cfs_flow_step">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>retry_count</element>
+            <help>On case of error, how many times this step will be invoked again.&#13;
+0 - No automatic re-run</help>
+            <hint/>
+            <label>Retry count</label>
+            <language>en</language>
+            <name>x_428232_cfs_flow_step</name>
+            <plural>Retry counts</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-11-23 09:02:38</sys_created_on>
+            <sys_name>Retry count</sys_name>
+            <sys_package display_value="SC Catalog Flow Steps" source="x_428232_cfs">4be7289a87535110ae3deb173cbb35ca</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="SC Catalog Flow Steps">4be7289a87535110ae3deb173cbb35ca</sys_scope>
+            <sys_update_name>sys_documentation_x_428232_cfs_flow_step_retry_count_en</sys_update_name>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

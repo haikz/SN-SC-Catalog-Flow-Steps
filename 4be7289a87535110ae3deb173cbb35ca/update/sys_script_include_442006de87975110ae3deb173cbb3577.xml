@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_428232_cfs.cfs_FlowStepsUtil</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>cfs_FlowStepsUtil</name>
+        <script><![CDATA[var cfs_FlowStepsUtil = Class.create();
+cfs_FlowStepsUtil.prototype = {
+    initialize: function () { },
+
+    /***
+     * setFlowStepVariables - Load subflow outputs and inputs to step.
+     * @param: recFlowStep - GlideRecord of Flow Step record
+     * @param: deletePrevious - booleam, clean up previous variables
+     * @return - None
+     ***/
+    setFlowStepVariables: function (recFlowStep, deletePrevious) {
+        var existingParams = [],
+            existingParamsIds = [],
+            updatedParamsIds = [];
+        var added = "",
+            deleted = "";
+        var arrayUtil = new global.ArrayUtil();
+        var recFlowStepVar = new GlideRecord('x_428232_cfs_flow_step_variable');
+
+        // existing parameters
+        if (deletePrevious) {
+            this._deleteFlowStepVariables(recFlowStep.getValue('sys_id'));
+        } else {
+            recFlowStepVar.addQuery('flow_step', recFlowStep.getValue("sys_id"));
+            recFlowStepVar.query();
+            while (recFlowStepVar.next()) {
+                existingParams.push(recFlowStepVar.getValue('flow_variable'));
+                existingParamsIds.push(recFlowStepVar.getValue('sys_id'));
+            }
+        }
+
+        // update/insert parameters,
+        var flowVariables = this._filterToFlowVariables(recFlowStep.getValue('subflow'));
+        flowVariables.query();
+        while (flowVariables.next()) {
+            var existParamsIndex = arrayUtil.indexOf(existingParams, flowVariables.getValue('sys_id'));
+            if (existParamsIndex < 0) {
+                recFlowStepVar.initialize();
+            } else {
+                recFlowStepVar.get(existingParamsIds[existParamsIndex]);
+                updatedParamsIds.push(existingParamsIds[existParamsIndex]);
+            }
+            recFlowStepVar.setValue("flow_step", recFlowStep.getValue("sys_id"));
+            recFlowStepVar = this._flowVariableToStepVariable(flowVariables, recFlowStepVar);
+            if (existParamsIndex < 0) {
+                added += "," + recFlowStepVar.type + " " + recFlowStepVar.name + " ";
+                var stepSysId = recFlowStepVar.insert();
+                recFlowStepVar.reference_name = "{" + stepSysId + ":" + flowVariables.element + "}";
+            }
+            recFlowStepVar.update();
+        }
+        // delete parameters not found on flow
+        if (!deletePrevious) {
+            var notUpdated = arrayUtil.diff(existingParamsIds, updatedParamsIds);
+            recFlowStepVar = new GlideRecord('x_428232_cfs_flow_step_variable'); // clean previous filters
+            recFlowStepVar.addQuery("sys_id", "IN", notUpdated.join());
+            recFlowStepVar.query();
+            while (recFlowStepVar.next()) {
+                deleted += "," + recFlowStepVar.type + " " + recFlowStepVar.name + " ";
+                recFlowStepVar.deleteRecord();
+            }
+            var msg = added ? "Variables added: " + added.replace(/(^,)/g, "") : '';
+            msg += deleted ? " Variables deleted: " + deleted.replace(/(^,)/g, "") : '';
+            if (!msg) {
+                msg = "No parameters were added/deleted.";
+            }
+            gs.addInfoMessage(msg);
+        }
+    },
+    /***
+     * _deleteFlowStepVariables - Will delete all flow step variables
+     * @param: recFlowStepId - Flow step sys_id
+     * @return - None
+     ***/
+    _deleteFlowStepVariables: function (recFlowStepId) {
+        var recFlowStepVar = new GlideRecord('x_428232_cfs_flow_step_variable');
+        recFlowStepVar.addQuery('flow_step', recFlowStepId);
+        recFlowStepVar.query();
+        recFlowStepVar.deleteMultiple();
+    },
+    /***
+     * _filterToFlowVariables - Find subflow variables
+     * @param: subflowId - subflow sys_id
+     * @return - GlideRecord of filtered var_dictionary records belonging to flow
+     ***/
+    _filterToFlowVariables: function (subflowId) {
+        // get active Flow snapshot
+        var flowSnapshot = new GlideRecord('sys_hub_flow_snapshot');
+        flowSnapshot.addEncodedQuery('master=true^active=true^parent_flow=' + subflowId);
+        flowSnapshot.setLimit(1);
+        flowSnapshot.query();
+        if (!flowSnapshot.next()) {
+            throw 'Cant find sys_hub_flow_snapshot';
+        }
+        // filter to active Flow variables
+        var flowVariables = new GlideRecord('var_dictionary');
+        flowVariables.orderBy('order');
+        flowVariables.addQuery('model_id', flowSnapshot.getValue('sys_id'));
+        flowVariables.addEncodedQuery('model_table=sys_hub_flow_snapshot^active=true^read_only=false^sys_class_name=sys_hub_flow_input^ORsys_class_name=sys_hub_flow_output');
+        return flowVariables;
+    },
+    /***
+     * _flowVariableToStepVariable - Transfer values from var_dictionary to flow step variable record
+     * @param: recFlowVariable - GliudeRecord of var_dictionary
+     * @param: recStepVar - GlideRecord of x_428232_cfs_flow_step_variable
+     * @return - Flow set variable Gliderecord with initialized values
+     ***/
+    _flowVariableToStepVariable: function (recFlowVariable, recStepVar) {
+        recStepVar.type = recFlowVariable.getValue('sys_class_name') == 'sys_hub_flow_input' ? "input" : "output";
+        recStepVar.flow_variable = recFlowVariable.sys_id;
+        recStepVar.name = recFlowVariable.element;
+        recStepVar.label = recFlowVariable.label;
+        recStepVar.mandatory = recFlowVariable.mandatory;
+        recStepVar.reference = recFlowVariable.reference.name;
+        recStepVar.internal_type = recFlowVariable.internal_type.name;
+        return recStepVar;
+    },
+
+    type: 'cfs_FlowStepsUtil'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-11-23 14:24:44</sys_created_on>
+        <sys_id>442006de87975110ae3deb173cbb3577</sys_id>
+        <sys_name>cfs_FlowStepsUtil</sys_name>
+        <sys_package display_value="SC Catalog Flow Steps" source="x_428232_cfs">4be7289a87535110ae3deb173cbb35ca</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SC Catalog Flow Steps">4be7289a87535110ae3deb173cbb35ca</sys_scope>
+        <sys_update_name>sys_script_include_442006de87975110ae3deb173cbb3577</sys_update_name>
+    </sys_script_include>
+</record_update>

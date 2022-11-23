@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-11-23 09:26:23</sys_created_on>
+        <sys_id>eaeb785287d35110ae3deb173cbb35b3</sys_id>
+        <sys_name>x_428232_cfs_flow_step_variable.x_428232_cfs.flow_step_variable_user</sys_name>
+        <sys_package display_value="SC Catalog Flow Steps" source="x_428232_cfs">4be7289a87535110ae3deb173cbb35ca</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SC Catalog Flow Steps">4be7289a87535110ae3deb173cbb35ca</sys_scope>
+        <sys_security_acl display_value="x_428232_cfs_flow_step_variable">aeeb785287d35110ae3deb173cbb35b0</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_eaeb785287d35110ae3deb173cbb35b3</sys_update_name>
+        <sys_user_role display_value="x_428232_cfs.flow_step_variable_user" name="x_428232_cfs.flow_step_variable_user">56eb781287d35110ae3deb173cbb3557</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>
